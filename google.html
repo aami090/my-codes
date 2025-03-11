@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 5px 20px;
+            font-size: 14px;
+            align-items: center;
+        }
+        .header a {
+            margin-left: 8px;
+            text-decoration: none;
+            color: black;
+        }
+        .header img {
+            margin-left: 8px;
+            width: 30px;
+            height: 20px;
+        }
+        .profile-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            margin-left: 15px;
+        }
+        .main {
+            margin-top: 150px;
+        }
+        .logo img {
+            width: 270px;
+        }
+        .search-bar {
+            margin-top: 20px;
+            position: relative;
+            width: 500px;  /* Same as the input field width */
+			margin: 0 auto;
+        }
+        .search-bar input {
+            width: 400px;
+            padding: 10px 40px 10px 40px;
+            font-size: 16px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-bar input:focus {
+            border-color: #4285f4;
+        }
+        .search-bar .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        .search-bar .microphone {
+            right: 50px;
+        }
+        .search-bar .camera {
+            right: 20px;
+        }
+        .search-bar .microphone img,
+		.search-bar .camera img {
+			width: 50px;  /* Adjust width of icons */
+			height: 50px; /* Adjust height of icons */
+		}
+
+        .languages {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .languages a {
+            color: #1a0dab;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            padding: 10px;
+            z-index: 9999;
+        }
+
+        .dropdown a {
+            text-decoration: none;
+            color: black;
+            padding: 8px;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .apps-icon:hover + .dropdown {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="https://mail.google.com/mail/u/0/">Gmail</a>
+        <a href="https://www.google.co.in/imghp?hl=en&ogbl">Images</a>
+
+        <!-- Google Apps Icon (9 dots) -->
+        <a href="https://www.google.com/intl/en/about/products/" class="apps-icon" target="_blank">
+            <img src="https://puzzleaday.wordpress.com/wp-content/uploads/2018/12/9-dot-puzzle-real-e1543992124903.png?w=315&h=307" alt="Google Apps Icon">
+        </a>
+
+        <!-- Dropdown for Google Apps -->
+        
+        <div class="dropdown">
+			
+            <a href="https://www.google.com/gmail">Gmail</a>
+            <a href="https://www.google.com/drive">Drive</a>
+            <a href="https://photos.google.com">Photos</a>
+            <a href="https://www.google.com/calendar">Calendar</a>
+            <a href="https://www.google.com/maps">Maps</a>
+            <a href="https://news.google.com">News</a>
+        </div>
+		
+        <!-- Flask Icon (Google Labs) -->
+        <a href="https://labs.google.com" target="_blank">
+            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Labs_Flask_Icon_Black_9HM429w.max-1440x810.png" alt="Google Labs Icon" style="width: 50px; height: 30px; margin-left: 15px;">
+        </a>
+
+        <!-- Profile Picture (DP) -->
+        <a href="https://myaccount.google.com/">
+            <img src="https://i.pinimg.com/736x/28/2d/18/282d18085387d9a4f9eac03969ca9518.jpg" alt="Profile Image" class="profile-img" style="width: 30px; height: 30px; margin-left: 15px;">
+        </a>
+    </div>
+
+    <div class="main">
+        <div class="logo">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google">
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search Google">
+            <!-- Voice Icon (Microphone) -->
+            <div class="icon microphone">
+                <img src="https://w7.pngwing.com/pngs/974/464/png-transparent-google-voice-search-logo-google-voice-search-web-search-engine-google-now-google-microphone-search-engine-optimization-logo.png" alt="Microphone" style="width: 20px; height: 20px;">
+            </div>
+            <!-- Camera Icon -->
+            <div class="icon camera">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Google_Lens_Icon.svg/1200px-Google_Lens_Icon.svg.png" alt="Camera" style="width: 20px; height: 20px;">
+            </div>
+        </div>
+        <div class="buttons">
+            <button onclick="searchGoogle()">Google Search</button>
+            <button onclick="feelingLucky()">I'm Feeling Lucky</button>
+        </div>
+        <div class="languages">
+            Google offered in: 
+            <a href="https://www.google.com/?hl=en">English</a>
+            <a href="https://www.google.com/?hl=ml">Malayalam</a>
+            <a href="https://www.google.com/?hl=hi">Hindi</a>
+            <a href="https://www.google.com/?hl=ar">Arabic</a>
+            <a href="https://www.google.com/?hl=fr">French</a>
+            <a href="https://www.google.com/?hl=de">German</a>
+        </div>
+    </div>
+
+    <script>
+        // Function for Google Search
+        function searchGoogle() {
+            var query = document.getElementById('searchInput').value;
+            if (query) {
+                window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(query);
+            }
+        }
+
+        // Function for "I'm Feeling Lucky"
+        function feelingLucky() {
+            var query = document.getElementById('searchInput').value;
+            if (query) {
+                window.location.href = "https://doodles.google/" + encodeURIComponent(query);
+            }
+        }
+
+        // Optional: Pressing Enter to trigger search
+        document.getElementById('searchInput').addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchGoogle(); // Trigger search when Enter is pressed
+            }
+        });
+    </script>
+
+</body>
+</html>
